@@ -44,10 +44,7 @@ const GroupChatModel = ({ children }) => {
         },
       };
 
-      const { data } = await axios.get(
-        `http://localhost:5000/api/user?search=${search}`,
-        config
-      );
+      const { data } = await axios.get(`/api/user?search=${search}`, config);
 
       setLoading(false);
       setSearchResults(data);
@@ -86,7 +83,7 @@ const GroupChatModel = ({ children }) => {
       };
 
       const { data } = await axios.post(
-        "http://localhost:5000/api/chat/group",
+        "/api/chat/group",
 
         {
           name: groupChatName,

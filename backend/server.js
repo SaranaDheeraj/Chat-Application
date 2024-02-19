@@ -16,12 +16,7 @@ dotenv.config();
 const PORT = process.env.PORT || 5000;
 connectDB();
 
-app.use(
-  cors({
-    origin: ["http://localhost:5173"],
-    methods: ["GET", "POST"],
-  })
-);
+app.use(cors());
 
 app.use(express.json());
 
@@ -62,7 +57,7 @@ const server = app.listen(PORT, () => {
 const io = require("socket.io")(server, {
   pingTimeout: 60000,
   cors: {
-    origin: ["http://localhost:5173"],
+    origin: ["*"],
   },
 });
 
